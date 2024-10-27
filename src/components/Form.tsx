@@ -103,14 +103,17 @@ const Form: React.FC = () => {
               id='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              aria-describedby='emailHelp'
+              aria-describedby='emailHelpHidden'
               aria-invalid={errorMessage.includes('Email') ? 'true' : 'false'}
               aria-required='true'
               required
             />
-            <small id='emailHelp' className='form-text'>
+            {/* <small id='emailHelp' className='form-text'>
               Please enter a valid email address.
-            </small>
+            </small> */}
+            <span id="emailHelpHidden" className="visually-hidden">
+              This is a custom message that you can map to your variable and format as text that is not visible on the screen.
+            </span>
 
             {/* Error Message */}
             {errorMessage.includes('email') && (

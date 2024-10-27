@@ -7,7 +7,9 @@ const ProjectInfo: React.FC = () => {
       role='document' 
       className='project-info'
     >
+      {/* Heading demo: at least 1 tag of h1 per page */}
       <h1 id='project-info-title'>Project Information</h1>
+      {/* <h1>Duplicate</h1> */}
       <p>
         This project is a demonstration of web accessibility using React. It includes a form that captures
         user information with appropriate ARIA roles and validation feedback for users of assistive technologies.

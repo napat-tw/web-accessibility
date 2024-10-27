@@ -116,6 +116,8 @@ main {
 
 .success-message {
   color: #005600;
+  /* For demo color contrast */
+  /* color: #00fb00; */
   margin-bottom: 1rem;
 }
 
@@ -248,4 +250,14 @@ main {
 :focus {
   outline: 2px dashed #007bff;
   outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
