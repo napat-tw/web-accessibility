@@ -15,13 +15,13 @@ const GenderSelect: React.FC<GenderSelectProps> = ({ gender, setGender, errorMes
 
   return (
     <fieldset className='form-group' aria-invalid={!!errorMessage}>
-      <legend id='genderLegend'>Gender:</legend>
-      <div className='radio-group' role='radiogroup' aria-labelledby='genderLegend'>
+      <legend id='genderLegend'>Gender</legend>
+      <div role='radiogroup' aria-label='Gender Options' className='radio-group'>
         {genderOptions.map((option, idx) => (
           <label key={`gender-${idx}`} htmlFor={`gender-${option.value}`}>
             <input
-              type='radio'
               id={`gender-${option.value}`}
+              type='radio'
               name='gender'
               value={option.value}
               checked={gender === option.value}
@@ -38,7 +38,7 @@ const GenderSelect: React.FC<GenderSelectProps> = ({ gender, setGender, errorMes
       {/* Error Message */}
       {errorMessage && (
         <small id='genderError' role='alert' aria-live='assertive' className='error-message'>
-          {' '}{errorMessage}
+          {' ! '}{errorMessage}
         </small>
       )}
     </fieldset>

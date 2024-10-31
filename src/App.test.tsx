@@ -21,17 +21,17 @@ describe('App Component', () => {
   it('should switch to Project Information tab when clicked', () => {
     render(<App />);
 
-    fireEvent.click(screen.getByRole('tab', { name: /^project information$/i }));
+    fireEvent.click(screen.getByRole('tab', { name: 'Project Information' }));
 
-    expect(screen.getByRole('heading', { name: /^project information$/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Project Information' })).toBeInTheDocument();
   });
 
   it('should switch back to Form tab when clicked', () => {
     render(<App />);
 
-    fireEvent.click(screen.getByRole('tab', { name: /^project information$/i }));
+    fireEvent.click(screen.getByRole('tab', { name: 'Project Information' }));
 
-    fireEvent.click(screen.getByRole('tab', { name: /^form$/i }));
+    fireEvent.click(screen.getByRole('tab', { name: 'Form Page' }));
 
     expect(screen.getByRole('heading', { name: /^register form$/i })).toBeInTheDocument();
   });

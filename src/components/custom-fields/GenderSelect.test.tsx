@@ -35,7 +35,7 @@ describe('GenderSelect Component', () => {
     const { getByLabelText } = render(<GenderSelect gender='male' setGender={setGender} />);
 
     await act(async () => {
-      fireEvent.click(getByLabelText(/female/i));
+      fireEvent.click(getByLabelText(/^female$/i));
     });
 
     expect(setGender).toHaveBeenCalledWith('female');
@@ -46,6 +46,6 @@ describe('GenderSelect Component', () => {
       <GenderSelect gender='' setGender={jest.fn()} errorMessage='Gender is required.' />
     );
 
-    expect(getByRole('alert')).toHaveTextContent(/Gender is required./i);
+    expect(getByRole('alert')).toHaveTextContent(/^! Gender is required.$/i);
   });
 });
