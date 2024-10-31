@@ -55,6 +55,17 @@ describe('Accessibility and Functional Coverage Tests', () => {
     cy.findByText(/^form submitted successfully!$/i)
       .should('be.visible');
 
+    // For demonstration only, don't disable rules that need fixing.
+    // https://github.com/dequelabs/axe-core/blob/master/doc/rule-descriptions.md
+    // cy.configureAxe({
+    //   rules: [
+    //     {
+    //         id: 'color-contrast',
+    //         enabled: false
+    //     }
+    //   ]
+    // })
+
     // Accessibility check after form submission
     cy.checkA11y();
   });
