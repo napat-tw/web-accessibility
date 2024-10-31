@@ -7,6 +7,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>, tab: 'form' | 'projectInfo') => {
+    // https://www.w3.org/TR/uievents-key/#named-key-attribute-values
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       setActiveTab(tab);
