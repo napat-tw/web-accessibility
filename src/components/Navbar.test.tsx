@@ -19,7 +19,7 @@ describe('Navbar Component', () => {
   it('should set active tab to form when the form tab is clicked', () => {
     render(<Navbar activeTab='projectInfo' setActiveTab={mockSetActiveTab} />);
 
-    fireEvent.click(screen.getByRole('tab', { name: /^form$/i }));
+    fireEvent.click(screen.getByRole('tab', { name: 'Form Page' }));
 
     expect(mockSetActiveTab).toHaveBeenCalledWith('form');
   });
@@ -27,7 +27,7 @@ describe('Navbar Component', () => {
   it('should set active tab to projectInfo when the project info tab is clicked', () => {
     render(<Navbar activeTab='form' setActiveTab={mockSetActiveTab} />);
 
-    fireEvent.click(screen.getByRole('tab', { name: /^project information$/i }));
+    fireEvent.click(screen.getByRole('tab', { name: 'Project Information' }));
 
     expect(mockSetActiveTab).toHaveBeenCalledWith('projectInfo');
   });
@@ -35,7 +35,7 @@ describe('Navbar Component', () => {
   it('should call setActiveTab with form when the form tab is activated using Enter key', () => {
     render(<Navbar activeTab='projectInfo' setActiveTab={mockSetActiveTab} />);
 
-    const formTab = screen.getByRole('tab', { name: /^form$/i });
+    const formTab = screen.getByRole('tab', { name: 'Form Page' });
     fireEvent.keyDown(formTab, { key: 'Enter', code: 'Enter' });
 
     expect(mockSetActiveTab).toHaveBeenCalledWith('form');
@@ -44,7 +44,7 @@ describe('Navbar Component', () => {
   it('should call setActiveTab with projectInfo when the project info tab is activated using Enter key', () => {
     render(<Navbar activeTab='form' setActiveTab={mockSetActiveTab} />);
 
-    const projectInfoTab = screen.getByRole('tab', { name: /^project information$/i });
+    const projectInfoTab = screen.getByRole('tab', { name: 'Project Information' });
     fireEvent.keyDown(projectInfoTab, { key: 'Enter', code: 'Enter' });
 
     expect(mockSetActiveTab).toHaveBeenCalledWith('projectInfo');
@@ -53,7 +53,7 @@ describe('Navbar Component', () => {
   it('should call setActiveTab with form when the form tab is activated using Space key', () => {
     render(<Navbar activeTab='projectInfo' setActiveTab={mockSetActiveTab} />);
 
-    const formTab = screen.getByRole('tab', { name: /^form$/i });
+    const formTab = screen.getByRole('tab', { name: 'Form Page' });
     fireEvent.keyDown(formTab, { key: ' ', code: 'Space' });
 
     expect(mockSetActiveTab).toHaveBeenCalledWith('form');
@@ -62,7 +62,7 @@ describe('Navbar Component', () => {
   it('should call setActiveTab with projectInfo when the project info tab is activated using Space key', () => {
     render(<Navbar activeTab='form' setActiveTab={mockSetActiveTab} />);
 
-    const projectInfoTab = screen.getByRole('tab', { name: /^project information$/i });
+    const projectInfoTab = screen.getByRole('tab', { name: 'Project Information' });
     fireEvent.keyDown(projectInfoTab, { key: ' ', code: 'Space' });
 
     expect(mockSetActiveTab).toHaveBeenCalledWith('projectInfo');

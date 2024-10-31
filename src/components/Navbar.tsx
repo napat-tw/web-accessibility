@@ -7,6 +7,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>, tab: 'form' | 'projectInfo') => {
+    // https://www.w3.org/TR/uievents-key/#named-key-attribute-values
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       setActiveTab(tab);
@@ -15,10 +16,13 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
   return (
     <nav aria-label='Main Navigation' className='navbar'>
-      <ul role='tablist' className='nav-list'>
+      <ul role='tablist' aria-label='Pages' className='nav-list'>
         <li
           role='tab'
+          aria-label='Form Page'
           aria-selected={activeTab === 'form'}
+          // aria-setsize={3}
+          // aria-posinset={1}
           tabIndex={0}
           onClick={() => setActiveTab('form')}
           onKeyDown={(e) => handleKeyDown(e, 'form')}
@@ -29,6 +33,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
         <li
           role='tab'
           aria-selected={activeTab === 'projectInfo'}
+          // aria-setsize={3}
+          // aria-posinset={2}
           tabIndex={0}
           onClick={() => setActiveTab('projectInfo')}
           onKeyDown={(e) => handleKeyDown(e, 'projectInfo')}
@@ -37,9 +43,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
           Project Information
         </li>
 
-        {/* Non Allow for Screen Reader */}
+        {/* Not Allow for Screen Reader */}
         <li
           role='tab'
+          // aria-setsize={3}
+          // aria-posinset={3}
           tabIndex={-1}
           className='nav-item'
         >

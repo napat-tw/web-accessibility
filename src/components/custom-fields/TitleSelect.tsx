@@ -15,16 +15,17 @@ const TitleSelect: React.FC<TitleSelectProps> = ({ title, setTitle, errorMessage
   ]
 
   return (
-    <div className='form-group' aria-labelledby='personalInfoLegend'>
+    <div role='group' aria-label='Title Field' className='form-group'>
       <label htmlFor='title'>Title:</label>
       <select
         id='title'
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        aria-label='Title Options'
         aria-describedby='titleHelp'
         aria-invalid={!!errorMessage}
         aria-required='true'
         required
+        onChange={(e) => setTitle(e.target.value)}
       >
         {/*
           For custom control field should have
@@ -45,14 +46,14 @@ const TitleSelect: React.FC<TitleSelectProps> = ({ title, setTitle, errorMessage
           <option key={`title-${idx}`} value={option.value}>{option.label}</option>
         ))}
       </select>
-      <small id='titleHelp' className='form-text'>
+      <small id='titleHelp' role='note' className='form-text'>
         Please enter your title.
       </small>
 
       {/* Error Message */}
       {errorMessage && (
         <small id='titleError' role='alert' aria-live='assertive' className='error-message'>
-          {' '}{errorMessage}
+          {' ! '}{errorMessage}
         </small>
       )}
     </div>

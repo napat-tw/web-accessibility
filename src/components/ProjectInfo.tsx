@@ -3,11 +3,12 @@ import React from 'react';
 const ProjectInfo: React.FC = () => {
   return (
     <section 
-      aria-labelledby='project-info-title' 
       role='document' 
+      aria-labelledby='project-info-title' 
       className='project-info'
     >
       <h1 id='project-info-title'>Project Information</h1>
+
       <p>
         This project is a demonstration of web accessibility using React. It includes a form that captures
         user information with appropriate ARIA roles and validation feedback for users of assistive technologies.

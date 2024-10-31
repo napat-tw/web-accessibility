@@ -57,9 +57,10 @@ const Form: React.FC = () => {
   const handleCloseModal = () => setIsModalOpen(false);
 
   return (
-    <section aria-labelledby='form-title' className='form-section'>
+    <section role='document' aria-labelledby='form-title' className='form-section'>
       <h1 id='form-title'>Register Form</h1>
-      <form onSubmit={handleSubmit} noValidate className='user-form'>
+
+      <form noValidate onSubmit={handleSubmit} className='user-form'>
         <fieldset>
           <legend id='personalInfoLegend'>Personal Information</legend>
 
@@ -71,51 +72,54 @@ const Form: React.FC = () => {
           />
 
           {/* Name Field */}
-          <div className='form-group' aria-labelledby='personalInfoLegend'>
+          <div role='group' aria-label='Name Field' className='form-group'>
             <label htmlFor='name'>Name:</label>
             <input
-              type='text'
               id='name'
+              type='text'
               value={name}
-              onChange={(e) => setName(e.target.value)}
               aria-describedby='nameHelp'
               aria-invalid={errorMessage.includes('Name') ? 'true' : 'false'}
               aria-required='true'
               required
+              onChange={(e) => setName(e.target.value)}
             />
-            <small id='nameHelp' className='form-text'>
+            <small id='nameHelp' role='note' className='form-text'>
               Please enter your full name.
             </small>
 
             {/* Error Message */}
             {errorMessage.includes('Name') && (
               <small id='nameError' role='alert' aria-live='assertive' className='error-message'>
-                {' '}{errorMessage}
+                {' ! '}{errorMessage}
               </small>
             )}
           </div>
 
           {/* Email Field */}
-          <div className='form-group' aria-labelledby='personalInfoLegend'>
+          <div role='group' aria-label='Email Field' className='form-group'>
             <label htmlFor='email'>Email:</label>
             <input
-              type='email'
               id='email'
+              type='email'
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              aria-describedby='emailHelp'
+              aria-describedby='emailHelpHidden'
               aria-invalid={errorMessage.includes('Email') ? 'true' : 'false'}
               aria-required='true'
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <small id='emailHelp' className='form-text'>
+            {/* <small id='emailHelp' role='note' className='form-text'>
               Please enter a valid email address.
-            </small>
+            </small> */}
+            <span id='emailHelpHidden' role='note' className='visually-hidden'>
+              This is a custom message that you can map to your variable and format as text that is not visible on the screen.
+            </span>
 
             {/* Error Message */}
             {errorMessage.includes('email') && (
               <small id='emailError' role='alert' aria-live='assertive' className='error-message'>
-                {' '}{errorMessage}
+                {' ! '}{errorMessage}
               </small>
             )}
           </div>
@@ -129,7 +133,7 @@ const Form: React.FC = () => {
 
           {/* Success Message Live Region */}
           {successMessage && (
-            <div id='formSuccess' aria-live='polite' role='alert' className='success-message'>
+            <div id='formSuccess' role='alert' aria-live='polite' className='success-message'>
               {successMessage}
             </div>
           )}
@@ -138,9 +142,9 @@ const Form: React.FC = () => {
           <div className='button-group'>
             <button
               type='button'
-              onClick={handleOpenModal}
               aria-haspopup='dialog'
               aria-expanded={isModalOpen}
+              onClick={handleOpenModal}
               className='btn btn-help'
             >
               Help
